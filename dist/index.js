@@ -7057,19 +7057,21 @@ const main = async () => {
             }
         });
 
-        core.setOutput('status', response.status);
-        core.setOutput('message', response.message);
+        core.setOutput('status', response.data.status);
+        core.setOutput('message', response.data.message);
 
-        console.log('Events API response', response);
+        console.log('Events API response status', response.status);
+        console.log('Events API response data', response.data);
+
+        if (response.status >= 400) {
+            core.setFailed(response.data.message);
+            return;
+        }
     } catch (error) {
         core.setFailed(error.message);
+        return;
     }
 };
-
-console.log('Platform: ', process.platform);
-console.log('Node version: ', process.version);
-console.log('Node dependencies: ', process.versions);
-console.log('Process: ', process);
 
 main();
 
