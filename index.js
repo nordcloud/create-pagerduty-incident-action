@@ -6,7 +6,7 @@ const main = async () => {
     try {
         const githubContext = github.context.payload;
         const action = core.getInput('action');
-        const timestamp = core.getInput('timestamp') ?? Date.now().toISOString();
+        const timestamp = core.getInput('timestamp') ?? new Date().toISOString();
         const payload = core.getInput('custom_details') ?? {};
 
         const response = await pd.event({
