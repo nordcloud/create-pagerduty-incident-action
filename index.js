@@ -1,6 +1,6 @@
-const core = require('@actions/core');
-const github = require('@actions/github');
-const pd = require('@pagerduty/pdjs');
+// const core = require('@actions/core');
+// const github = require('@actions/github');
+// const pd = require('@pagerduty/pdjs');
 
 // const main = async () => {
 //     try {
