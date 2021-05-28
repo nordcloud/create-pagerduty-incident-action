@@ -39,4 +39,9 @@ const main = async () => {
     }
 };
 
-main();
+// main();
+
+
+console.log('Platform: ', process.platform);
+console.log('Node version: ', process.version);
+console.log('Node dependencies: ', process.versions);
