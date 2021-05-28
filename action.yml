@@ -37,11 +37,17 @@ inputs:
   custom_details:
     description: 'Incident metadata'
     required: false
+  include_github_context:
+    description: 'Should the incident include the full GitHub context?'
+    required: false
+    default: 'false'
 outputs:
   status:
     description: 'Returned status'
   message:
     description: 'Returned message'
+  data:
+    description: 'All returned data'
 runs:
   using: 'node12'
-  main: 'index.js'
+  main: 'dist/index.js'
