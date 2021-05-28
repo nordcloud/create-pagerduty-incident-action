@@ -11,6 +11,11 @@
     "@pagerduty/pdjs": "^2.2.2"
   },
   "devDependencies": {
+    "@vercel/ncc": "^0.28.6",
     "eslint": "^7.27.0"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "prepare": "ncc build index.js -o dist --source-map --license licenses.txt"
   }
 }
