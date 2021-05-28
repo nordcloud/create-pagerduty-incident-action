@@ -7034,7 +7034,7 @@ const main = async () => {
         const githubContext = github.context.payload;
         const action = core.getInput('action');
         const timestamp = core.getInput('timestamp') || new Date().toISOString();
-        const payload = core.getInput('custom_details') || {};
+        const custom = core.getInput('custom_details') || null;
 
         const response = await pd.event({
             data: {
@@ -7051,7 +7051,7 @@ const main = async () => {
                     class: core.getInput('class') || undefined,
                     custom_details: {
                         github_context: core.getInput('include_github_context') == 'true' ? githubContext : undefined,
-                        ...payload
+                        custom: custom || undefined
                     }
                 }
             }
