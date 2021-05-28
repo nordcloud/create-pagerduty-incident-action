@@ -37,6 +37,10 @@ inputs:
   custom_details:
     description: 'Incident metadata'
     required: false
+  include_github_context:
+    description: 'Should the incident include the full GitHub context?'
+    required: false
+    default: 'false'
 outputs:
   status:
     description: 'Returned status'

@@ -23,7 +23,7 @@ const main = async () => {
                     group: core.getInput('group') || undefined,
                     class: core.getInput('class') || undefined,
                     custom_details: {
-                        github_context: githubContext,
+                        github_context: core.getInput('include_github_context') == 'true' ? githubContext : undefined,
                         ...payload
                     }
                 }
@@ -34,8 +34,6 @@ const main = async () => {
         core.setOutput('message', response.data.message);
         core.setOutput('data', response.data);
 
-        console.log('ts', timestamp);
-        console.log('pl', payload);
         console.log('Events API response status', response.status);
         console.log('Events API response data', response.data);
 
