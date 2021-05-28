@@ -7059,12 +7059,14 @@ const main = async () => {
 
         core.setOutput('status', response.data.status);
         core.setOutput('message', response.data.message);
+        core.setOutput('data', response.data);
 
+        console.log('ts', timestamp);
         console.log('Events API response status', response.status);
         console.log('Events API response data', response.data);
 
         if (response.status >= 400) {
-            core.setFailed(response.data.message);
+            core.setFailed(JSON.stringify(response.data));
             return;
         }
     } catch (error) {
