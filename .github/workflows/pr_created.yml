@@ -1,0 +1,22 @@
+name: PR created
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@master
+
+      - name: Super-linter!
+        uses: github/super-linter@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_ALL_CODEBASE: true
+          DEFAULT_BRANCH: main
+          VALIDATE_JAVASCRIPT_ES: true

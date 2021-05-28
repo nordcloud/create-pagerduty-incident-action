@@ -1,0 +1,47 @@
+name: 'Create PagerDuty incident'
+description: 'Create a PD incident directly from your Actions workflow'
+inputs:
+  integration_key:
+    description: 'PagerDuty integration key'
+    required: true
+  summary:
+    description: 'Incident summary'
+    required: true
+  action:
+    description: 'Events API v2 action'
+    required: true
+    default: 'trigger'
+  dedup_key:
+    description: 'Incident deduplication key'
+    required: false
+  source:
+    description: 'Incident source'
+    required: false
+    default: 'GitHub Actions'
+  severity:
+    description: 'Incident severity'
+    required: false
+    default: 'critical'
+  timestamp:
+    description: 'Incident timestamp'
+    required: false
+  component:
+    description: 'Incident component'
+    required: false
+  group:
+    description: 'Incident group'
+    required: false
+  class:
+    description: 'Incident class'
+    required: false
+  custom_details:
+    description: 'Incident metadata'
+    required: false
+outputs:
+  status:
+    description: 'Returned status'
+  message:
+    description: 'Returned message'
+runs:
+  using: 'node12'
+  main: 'index.js'

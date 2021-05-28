@@ -1,0 +1,16 @@
+{
+  "name": "create-pagerduty-incident-action",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:nordcloud/create-pagerduty-incident-action.git",
+  "author": "Maciej Wilczyński <maciej.wilczynski@nordcloud.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.3.0",
+    "@actions/github": "^5.0.0",
+    "@pagerduty/pdjs": "^2.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.27.0"
+  }
+}
