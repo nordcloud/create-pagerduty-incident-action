@@ -7063,7 +7063,7 @@ const main = async () => {
         core.setOutput('message', response.data.message);
         core.setOutput('data', response.data);
 
-        console.log('Events API request', event);
+        console.log('Events API request', JSON.stringify(event));
         console.log('Events API response status', response.status);
         console.log('Events API response data', response.data);
 
