@@ -7036,7 +7036,7 @@ const main = async () => {
         const timestamp = core.getInput('timestamp') || new Date().toISOString();
         const custom = core.getInput('custom_details') || null;
 
-        const response = await pd.event({
+        const event = {
             data: {
                 routing_key: core.getInput('integration_key'),
                 event_action: action,
@@ -7055,12 +7055,15 @@ const main = async () => {
                     }
                 }
             }
-        });
+        };
+
+        const response = await pd.event(event);
 
         core.setOutput('status', response.data.status);
         core.setOutput('message', response.data.message);
         core.setOutput('data', response.data);
 
+        console.log('Events API request', event);
         console.log('Events API response status', response.status);
         console.log('Events API response data', response.data);
 
